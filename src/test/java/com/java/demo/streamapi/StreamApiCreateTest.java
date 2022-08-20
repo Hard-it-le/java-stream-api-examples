@@ -2,8 +2,8 @@ package com.java.demo.streamapi;
 
 import com.java.demo.streamapi.repos.ProductRepo;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -41,14 +41,14 @@ class StreamApiCreateTest {
     private Long endTime;
 
 
-    @Before()
-    public void before() {
+    @BeforeEach()
+    void before() {
         startTime = System.currentTimeMillis();
         log.info("method run startTime:" + startTime);
     }
 
-    @After()
-    public void after() {
+    @AfterEach()
+    void after() {
         endTime = System.currentTimeMillis();
         log.info("method run endTime:" + endTime);
         log.info(String.format("exercise 1 - execution time: %1$d ms", (endTime - startTime)));
