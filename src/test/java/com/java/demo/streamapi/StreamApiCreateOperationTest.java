@@ -1,6 +1,5 @@
 package com.java.demo.streamapi;
 
-import com.java.demo.streamapi.repos.ProductRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -31,10 +29,6 @@ import java.util.stream.Stream;
 @Slf4j
 @DataJpaTest
 class StreamApiCreateOperationTest {
-
-
-    @Resource
-    private ProductRepo productRepo;
 
     private Long startTime;
 
@@ -63,14 +57,12 @@ class StreamApiCreateOperationTest {
     @Test
     @DisplayName("create stream bases on array")
     void example2() {
-
         String[] arr = new String[]{"1", "2", "3", "4", "5"};
         Stream<String> entireArrayStream = Arrays.stream(arr);
         Stream<String> partArrayStream = Arrays.stream(arr, 1, 4);
         log.info(String.valueOf(entireArrayStream));
         log.info(String.valueOf(partArrayStream));
     }
-
 
     @Test
     @DisplayName("create stream bases on collection")
