@@ -93,10 +93,10 @@ class StreamApiCreateTest {
     @Test
     @DisplayName("create stream bases on file ")
     void example5() throws IOException {
-
         Path path = Paths.get("/Users/yujiale/AllProject/PrivateProject/stream-api-examples/");
         Stream<String> fileStream = Files.lines(path);
         Stream<String> fileStreamWithCharset = Files.lines(path, StandardCharsets.UTF_8);
+        log.info(fileStream.toString());
     }
 
     @Test
@@ -104,6 +104,7 @@ class StreamApiCreateTest {
     void example6() {
         // 创建一个连续元素的 stream,第1个元素是10，第2个元素是11，依此类推，直到元素数量达到size。
         Stream<Integer> iteratedStream = Stream.iterate(10, n -> n + 1).limit(10);
+        log.info(iteratedStream.toString());
     }
 
     @Test
@@ -111,6 +112,7 @@ class StreamApiCreateTest {
     void example7() {
         // generate() 方法接受一个Supplier<T>来生成元素。因为流是无限的，所以我们需要设置流的size。下面会包含五个 ele 字符串
         Stream<String> generatedStream = Stream.generate(() -> "ele").limit(5);
+        log.info(generatedStream.toString());
     }
 
     // 以下是基本类型 stream 的创建
@@ -122,12 +124,12 @@ class StreamApiCreateTest {
         IntStream intStream = (IntStream) IntStream.range(1, 3);//1,2
         // rangeClosed(int start, int end) 与range() 方法的区别在于，前者会包括end。
         LongStream longStream = LongStream.rangeClosed(1, 3);//1,2,3
+        log.info(longStream.toString());
     }
 
     @Test
     @DisplayName("create stream bases on of function ")
     void example9() {
-
         int[] intArray = {1, 2, 3};
         IntStream intStream = IntStream.of(intArray);//1,2,3
         IntStream intStream2 = IntStream.of(1, 2, 3);//1,2,3
@@ -137,18 +139,17 @@ class StreamApiCreateTest {
         double[] doubleArray = {1.0, 2.0, 3.0};
         DoubleStream doubleStream = DoubleStream.of(doubleArray);
         DoubleStream doubleStream2 = DoubleStream.of(1.0, 2.0, 3.0);//1.0,2.0,3.0
-
+        log.info(doubleStream2.toString());
     }
 
     @Test
     @DisplayName("create stream bases on random class")
     void example10() {
-
         Random random = new Random();
         IntStream intStream = random.ints(3);
         LongStream longStream = random.longs(3);
         DoubleStream doubleStream = random.doubles(3);
-
+        log.info(doubleStream.toString());
     }
 
     // 以下是字符串 create stream
@@ -157,6 +158,7 @@ class StreamApiCreateTest {
     @DisplayName("create stream bases on character ")
     void example11() {
         IntStream charStream = "abc".chars();
+        log.info(charStream.toString());
     }
 
 
@@ -164,5 +166,6 @@ class StreamApiCreateTest {
     @DisplayName("create stream bases on character string ")
     void example12() {
         Stream<String> stringStream = Pattern.compile(",").splitAsStream("a,b,c");
+        log.info(stringStream.toString());
     }
 }
