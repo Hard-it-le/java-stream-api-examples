@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @DataJpaTest
-public class StreamApiTest {
+class StreamApiTest {
 
     @Autowired
     private CustomerRepo customerRepo;
@@ -35,7 +35,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a list of product with category = \"Books\" and price > 100")
-    public void exercise1() {
+    void exercise1() {
         long startTime = System.currentTimeMillis();
         List<Product> result = productRepo.findAll()
                 .stream()
@@ -50,7 +50,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a list of product with category = \"Books\" and price > 100 (using Predicate chaining for filter)")
-    public void exercise1a() {
+    void exercise1a() {
         Predicate<Product> categoryFilter = product -> product.getCategory().equalsIgnoreCase("Books");
         Predicate<Product> priceFilter = product -> product.getPrice() > 100;
 
@@ -67,7 +67,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a list of product with category = \"Books\" and price > 100 (using BiPredicate for filter)")
-    public void exercise1b() {
+    void exercise1b() {
         BiPredicate<Product, String> categoryFilter = (product, category) -> product.getCategory().equalsIgnoreCase(category);
 
         long startTime = System.currentTimeMillis();
@@ -83,7 +83,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a list of order with product category = \"Baby\"")
-    public void exercise2() {
+    void exercise2() {
         long startTime = System.currentTimeMillis();
         List<Order> result = orderRepo.findAll()
                 .stream()
@@ -103,7 +103,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a list of product with category = “Toys” and then apply 10% discount\"")
-    public void exercise3() {
+    void exercise3() {
         long startTime = System.currentTimeMillis();
 
         List<Product> result = productRepo.findAll()
@@ -120,7 +120,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a list of products ordered by customer of tier 2 between 01-Feb-2021 and 01-Apr-2021")
-    public void exercise4() {
+    void exercise4() {
         long startTime = System.currentTimeMillis();
         List<Product> result = orderRepo.findAll()
                 .stream()
@@ -138,7 +138,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Get the 3 cheapest products of \"Books\" category")
-    public void exercise5() {
+    void exercise5() {
         long startTime = System.currentTimeMillis();
 //              Optional<Product> result = productRepo.findAll()
 //                              .stream()
@@ -159,7 +159,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Get the 3 most recent placed order")
-    public void exercise6() {
+    void exercise6() {
         long startTime = System.currentTimeMillis();
         List<Order> result = orderRepo.findAll()
                 .stream()
@@ -174,7 +174,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Get a list of products which was ordered on 15-Mar-2021")
-    public void exercise7() {
+    void exercise7() {
         long startTime = System.currentTimeMillis();
         List<Product> result = orderRepo.findAll()
                 .stream()
@@ -191,7 +191,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Calculate the total lump of all orders placed in Feb 2021")
-    public void exercise8() {
+    void exercise8() {
         long startTime = System.currentTimeMillis();
         double result = orderRepo.findAll()
                 .stream()
@@ -207,7 +207,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Calculate the total lump of all orders placed in Feb 2021 (using reduce with BiFunction)")
-    public void exercise8a() {
+    void exercise8a() {
         BiFunction<Double, Product, Double> accumulator = (acc, product) -> acc + product.getPrice();
         long startTime = System.currentTimeMillis();
         double result = orderRepo.findAll()
@@ -224,7 +224,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Calculate the average price of all orders placed on 15-Mar-2021")
-    public void exercise9() {
+    void exercise9() {
         long startTime = System.currentTimeMillis();
         double result = orderRepo.findAll()
                 .stream()
@@ -240,7 +240,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain statistics summary of all products belong to \"Books\" category")
-    public void exercise10() {
+    void exercise10() {
         long startTime = System.currentTimeMillis();
         DoubleSummaryStatistics statistics = productRepo.findAll()
                 .stream()
@@ -257,7 +257,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a mapping of order id and the order's product count")
-    public void exercise11() {
+    void exercise11() {
         long startTime = System.currentTimeMillis();
         Map<Long, Integer> result = orderRepo.findAll()
                 .stream()
@@ -274,7 +274,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a data map of customer and list of orders")
-    public void exercise12() {
+    void exercise12() {
         long startTime = System.currentTimeMillis();
         Map<Customer, List<Order>> result = orderRepo.findAll()
                 .stream()
@@ -287,7 +287,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a data map of customer_id and list of order_id(s)")
-    public void exercise12a() {
+    void exercise12a() {
         long startTime = System.currentTimeMillis();
         HashMap<Long, List<Long>> result = orderRepo.findAll()
                 .stream()
@@ -303,7 +303,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a data map with order and its total price")
-    public void exercise13() {
+    void exercise13() {
         long startTime = System.currentTimeMillis();
         Map<Order, Double> result = orderRepo.findAll()
                 .stream()
@@ -321,7 +321,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a data map with order and its total price (using reduce)")
-    public void exercise13a() {
+    void exercise13a() {
         long startTime = System.currentTimeMillis();
         Map<Long, Double> result = orderRepo.findAll()
                 .stream()
@@ -339,7 +339,7 @@ public class StreamApiTest {
 
     @Test
     @DisplayName("Obtain a data map of product name by category")
-    public void exercise14() {
+    void exercise14() {
         long startTime = System.currentTimeMillis();
         Map<String, List<String>> result = productRepo.findAll()
                 .stream()

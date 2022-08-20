@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @DataJpaTest
-public class StreamApiBasicTest {
+class StreamApiBasicTest {
 
 
     @Resource
@@ -26,7 +26,7 @@ public class StreamApiBasicTest {
 
     @Test
     @DisplayName("Obtain a list of product with category = \"Books\" and price > 100")
-    public void exercise1() {
+    void exercise1() {
         long startTime = System.currentTimeMillis();
         List<Product> result = productRepo.findAll()
                 .stream()
