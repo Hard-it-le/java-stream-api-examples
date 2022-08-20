@@ -19,7 +19,7 @@ import java.util.stream.Stream;
  **/
 @Slf4j
 @DataJpaTest
-public class StreamApiBasicUseTest {
+class StreamApiBasicUseTest {
 
     private Long startTime;
 
