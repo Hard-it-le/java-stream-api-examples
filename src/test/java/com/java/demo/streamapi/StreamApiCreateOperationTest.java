@@ -32,7 +32,6 @@ class StreamApiCreateOperationTest {
 
     private Long startTime;
 
-
     @BeforeEach()
     void before() {
         startTime = System.currentTimeMillis();
