@@ -38,8 +38,6 @@ class StreamApiCreateTest {
 
     private Long startTime;
 
-    private Long endTime;
-
 
     @BeforeEach()
     void before() {
@@ -49,7 +47,7 @@ class StreamApiCreateTest {
 
     @AfterEach()
     void after() {
-        endTime = System.currentTimeMillis();
+        Long endTime = System.currentTimeMillis();
         log.info("method run endTime:" + endTime);
         log.info(String.format("exercise 1 - execution time: %1$d ms", (endTime - startTime)));
 
