@@ -1,4 +1,4 @@
-package space.gavinklfong.demo.streamapi;
+package com.java.demo.streamapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

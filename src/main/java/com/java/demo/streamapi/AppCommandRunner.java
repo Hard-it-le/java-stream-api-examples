@@ -1,13 +1,13 @@
-package space.gavinklfong.demo.streamapi;
+package com.java.demo.streamapi;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import space.gavinklfong.demo.streamapi.repos.CustomerRepo;
-import space.gavinklfong.demo.streamapi.repos.OrderRepo;
-import space.gavinklfong.demo.streamapi.repos.ProductRepo;
+import com.java.demo.streamapi.repos.CustomerRepo;
+import com.java.demo.streamapi.repos.OrderRepo;
+import com.java.demo.streamapi.repos.ProductRepo;
 
+import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
 /**
@@ -17,16 +17,16 @@ import javax.transaction.Transactional;
 @Component
 public class AppCommandRunner implements CommandLineRunner {
 
-	@Autowired
+	@Resource
 	private CustomerRepo customerRepos;
 	
-	@Autowired
+	@Resource
 	private OrderRepo orderRepos;
 	
-	@Autowired
+	@Resource
 	private ProductRepo productRepos;
 
-	@Transactional
+	@Transactional()
 	@Override
 	public void run(String... args) throws Exception {
 		log.info("Customers:");

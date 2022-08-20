@@ -1,16 +1,16 @@
-package space.gavinklfong.demo.streamapi;
+package com.java.demo.streamapi;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import space.gavinklfong.demo.streamapi.models.Customer;
-import space.gavinklfong.demo.streamapi.models.Order;
-import space.gavinklfong.demo.streamapi.models.Product;
-import space.gavinklfong.demo.streamapi.repos.CustomerRepo;
-import space.gavinklfong.demo.streamapi.repos.OrderRepo;
-import space.gavinklfong.demo.streamapi.repos.ProductRepo;
+import com.java.demo.streamapi.models.Customer;
+import com.java.demo.streamapi.models.Order;
+import com.java.demo.streamapi.models.Product;
+import com.java.demo.streamapi.repos.CustomerRepo;
+import com.java.demo.streamapi.repos.OrderRepo;
+import com.java.demo.streamapi.repos.ProductRepo;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -200,7 +200,6 @@ public class StreamApiTest {
                 .flatMap(o -> o.getProducts().stream())
                 .mapToDouble(Product::getPrice)
                 .sum();
-
         long endTime = System.currentTimeMillis();
         log.info(String.format("exercise 8 - execution time: %1$d ms", (endTime - startTime)));
         log.info("Total lump sum = " + result);
@@ -210,7 +209,6 @@ public class StreamApiTest {
     @DisplayName("Calculate the total lump of all orders placed in Feb 2021 (using reduce with BiFunction)")
     public void exercise8a() {
         BiFunction<Double, Product, Double> accumulator = (acc, product) -> acc + product.getPrice();
-
         long startTime = System.currentTimeMillis();
         double result = orderRepo.findAll()
                 .stream()
@@ -371,10 +369,7 @@ public class StreamApiTest {
         long endTime = System.currentTimeMillis();
         log.info(String.format("exercise 15 - execution time: %1$d ms", (endTime - startTime)));
         log.info(result.toString());
-//		result.forEach((k,v) -> {
-//			log.info("key=" + k + ", value=" + v.get());
-//		});
-
+        result.forEach((k, v) -> log.info("key=" + k + ", value=" + v.get()));
     }
 
     @Test

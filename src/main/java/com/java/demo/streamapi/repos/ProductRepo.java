@@ -1,8 +1,8 @@
-package space.gavinklfong.demo.streamapi.repos;
+package com.java.demo.streamapi.repos;
 
+import com.java.demo.streamapi.models.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import space.gavinklfong.demo.streamapi.models.Product;
 
 import java.util.List;
 

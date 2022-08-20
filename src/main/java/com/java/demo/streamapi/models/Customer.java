@@ -1,4 +1,4 @@
-package space.gavinklfong.demo.streamapi.models;
+package com.java.demo.streamapi.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
