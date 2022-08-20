@@ -30,7 +30,7 @@ import java.util.stream.Stream;
  **/
 @Slf4j
 @DataJpaTest
-class StreamApiCreateTest {
+class StreamApiCreateOperationTest {
 
 
     @Resource
