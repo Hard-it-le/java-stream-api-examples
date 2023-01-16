@@ -11,9 +11,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @Author yujiale
- * @Date 2022/8/20 15:52
- * @Description stream terminal operation method
  * <p>
  * forEach	遍历Stream中的每个元素
  * forEachOrdered	遍历Stream中的每个元素 区别： 在串行流（stream）中没有区别，在并行流（parallelStream）中如果数据源是有序集合，forEachOrdered输出顺序与数据源中顺序一致，forEach则是乱序。

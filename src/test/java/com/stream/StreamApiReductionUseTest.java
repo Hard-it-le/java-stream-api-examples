@@ -11,9 +11,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * @Author yujiale
- * @Date 2022/8/20 15:26
- * @Description stream reduction use 归约操作
+ * stream reduction use 归约操作
  **/
 @Slf4j
 class StreamApiReductionUseTest {
@@ -45,13 +43,9 @@ class StreamApiReductionUseTest {
     @Test
     @DisplayName("stream reduce use")
     void exampleByReduceMethod() {
-        /**
-         * 1. identity-初始值
-         *
-         * 2. accumulator-累加器
-         *
-         * 3. combiner-拼接器，只有并行执行时才会用到。
-         */
+        //  1. identity-初始值
+        //  2. accumulator-累加器
+        // 3. combiner-拼接器，只有并行执行时才会用到。
         // Optional<T> reduce(BinaryOperator<T> accumulator)
         Optional<Integer> reducedInt = Stream.of(1, 2, 3).reduce((a, b) -> a + b);
         // T reduce(T identity, BinaryOperator<T> accumulator)

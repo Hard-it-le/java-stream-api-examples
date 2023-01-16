@@ -14,9 +14,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @Author yujiale
- * @Date 2022/8/20 15:51
- * @Description stream intermediate operation method
  * <p>
  * 方法名	说明
  * map	将对应的元素使用给定方法进行转换
@@ -54,8 +51,7 @@ class StreamApiMiddleOperationTest {
         List<String> collect = arrayList.stream().map(String::toLowerCase).collect(Collectors.toList());
         log.info(String.valueOf(collect));
         //map() 方法对每个元素按照某种操作进行转换，转换后流的元素不会改变，但是元素类型取决于转换之后的类型。
-        Arrays.asList("Try", "It", "Now")
-                .stream()
+        Stream.of("Try", "It", "Now")
                 .map(String::toUpperCase)
                 .forEach(log::info);
     }

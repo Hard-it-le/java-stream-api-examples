@@ -60,14 +60,14 @@ public class StreamApiCreateOperationTest {
     void example3() {
         Collection<String> collection = Arrays.asList("1", "2", "3");
         Stream<String> collectionStream = collection.stream();
-        log.info(String.valueOf(collectionStream).toString());
+        log.info(String.valueOf(collectionStream));
     }
 
     @Test
     @DisplayName("create stream bases on Stream.Builder method")
     void example4() {
         Stream<Object> streamBuilder = Stream.builder().add("1").add("2").add("3").build();
-        log.info(String.valueOf(streamBuilder).toString());
+        log.info(String.valueOf(streamBuilder));
 
     }
 
