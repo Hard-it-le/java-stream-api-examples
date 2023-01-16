@@ -7,7 +7,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Slf4j
 public class StreamApiBasicUseTest {
@@ -46,5 +48,57 @@ public class StreamApiBasicUseTest {
         // strings.stream().forEach(System.out::println);
         strings.forEach(log::info);
         // 上述两个写法作用等价
+    }
+
+
+    @Test
+    @DisplayName("stream method filter use")
+    void exampleByFilter() {
+        // filter() 方法的作用是返回符合条件的Stream。
+        Stream.of("Try", "It", "Now")
+                .filter(ele -> ele.length() == 3)
+                .forEach(log::info);
+    }
+
+    @Test
+    @DisplayName(" stream method distinct use ")
+    void exampleByDistinct() {
+        // distinct() 方法返回一个去重的stream
+        Stream.of("Try", "It", "Now", "Now")
+                .distinct()
+                .forEach(log::info);
+    }
+
+
+    @Test
+    @DisplayName(" stream method sorted use")
+    void exampleBySorted() {
+        // 排序函数有两个，一个是自然顺序，还有一个是自定义比较器排序。
+        Arrays.asList("Try", "It", "Now")
+                .stream()
+                .sorted((str1, str2) -> str1.length() - str2.length())
+                .forEach(log::info);
+    }
+
+
+    @Test
+    @DisplayName("stream method map use")
+    void exampleByMap() {
+        //map() 方法对每个元素按照某种操作进行转换，转换后流的元素不会改变，但是元素类型取决于转换之后的类型。
+        Arrays.asList("Try", "It", "Now")
+                .stream()
+                .map(String::toUpperCase)
+                .forEach(log::info);
+    }
+
+
+    @Test
+    @DisplayName("stream method fiatMap use")
+    void exampleByFlatMap(){
+        // flat的英文就是”平坦的“意思，而flatMap()方法的作用就是将流的元素摊平，原来的stream有两个元素，分别是两个List，执行了flatMap()之后，
+        // 将每个List都”摊平“成了一个个的元素，所以会产生一个有三个字符串组成的流。
+        Stream.of(Arrays.asList("Try", "It"), Arrays.asList("Now"))
+                .flatMap(Collection::stream)
+                .forEach(log::info);
     }
 }
