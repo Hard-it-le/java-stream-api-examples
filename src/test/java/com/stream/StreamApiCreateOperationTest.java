@@ -22,6 +22,7 @@ import java.util.stream.Stream;
 
 @Slf4j
 public class StreamApiCreateOperationTest {
+
     private Long startTime;
 
     @BeforeEach()
@@ -35,9 +36,11 @@ public class StreamApiCreateOperationTest {
         Long endTime = System.currentTimeMillis();
         log.info("method run endTime:" + endTime);
         log.info(String.format("exercise 1 - execution time: %1$d ms", (endTime - startTime)));
-
     }
 
+    /**
+     * 创建 stream
+     */
     @Test
     @DisplayName("create null stream ")
     void example1() {
@@ -140,7 +143,6 @@ public class StreamApiCreateOperationTest {
         IntStream charStream = "abc".chars();
         log.info(charStream.toString());
     }
-
 
     @Test
     @DisplayName("create stream bases on character string ")

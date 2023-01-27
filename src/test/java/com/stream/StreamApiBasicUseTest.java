@@ -15,9 +15,7 @@ import java.util.stream.Stream;
 @Slf4j
 public class StreamApiBasicUseTest {
 
-
     private Long startTime;
-
 
     @BeforeEach
     void before() {
@@ -28,7 +26,6 @@ public class StreamApiBasicUseTest {
     @AfterEach
     void after() {
         Long endTime = System.currentTimeMillis();
-
         log.info("method run endTime:" + endTime);
         log.info(String.format("exercise 1 - execution time: %1$d ms", (endTime - startTime)));
     }
@@ -54,7 +51,9 @@ public class StreamApiBasicUseTest {
         strings.forEach(log::info);
     }
 
-
+    /**
+     * filter 过滤
+     */
     @Test
     @DisplayName("stream method filter use")
     void exampleByFilter() {
@@ -64,6 +63,9 @@ public class StreamApiBasicUseTest {
                 .forEach(log::info);
     }
 
+    /**
+     * distinct 去重
+     */
     @Test
     @DisplayName(" stream method distinct use ")
     void exampleByDistinct() {
@@ -74,6 +76,9 @@ public class StreamApiBasicUseTest {
     }
 
 
+    /**
+     * sorted 排序
+     */
     @Test
     @DisplayName(" stream method sorted use")
     void exampleBySorted() {
@@ -84,6 +89,9 @@ public class StreamApiBasicUseTest {
     }
 
 
+    /**
+     * map 集合
+     */
     @Test
     @DisplayName("stream method map use")
     void exampleByMap() {
@@ -94,6 +102,9 @@ public class StreamApiBasicUseTest {
     }
 
 
+    /**
+     * fiatMap
+     */
     @Test
     @DisplayName("stream method fiatMap use")
     void exampleByFlatMap() {
